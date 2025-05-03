@@ -8,40 +8,52 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
- <div class="container">
-  <a class="navbar-brand" href="index.html">Carmela Accettura</a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
-  <div class="collapse navbar-collapse" id="menu">
-    <ul class="navbar-nav ms-auto">
-      <li class="nav-item"><a class="nav-link active" href="index.html">About</a></li>
-      <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
-    </ul>
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Carmela Accettura</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
+      </ul>
+    </div>
   </div>
- </div>
 </nav>
 
-<header class="container mt-4">
-  <h1>Carmela Accettura</h1>
-  <p class="lead"></p>
+<!-- ===== HERO (titolo + testo + foto) ===== -->
+<header class="container mt-5">
+  <div class="row align-items-start">
+    
+    <!-- COLONNA TESTO -->
+    <div class="col-lg-8">
+      <h1 class="display-4 fw-bold">
+        Carmela <span class="accent">Accettura</span>
+      </h1>
+
+      <p class="lead mb-4">Welcome to my website!</p>
+
+      <p>I am a PhD candidate in Economics at Universidad Carlos III de Madrid. 
+         My research interests are political economy, gender economics and
+         economic history.</p>
+
+      <p>I will be on the 2025/2026 academic job market.</p>
+    </div>
+
+    <!-- COLONNA FOTO -->
+    <div class="col-lg-4 text-lg-end text-center">
+      <img src="photo_cropped.jpg"
+           alt="Carmela Accettura"
+           class="img-fluid rounded shadow mb-3"
+           style="max-width: 330px;">
+    </div>
+
+  </div><!-- /row -->
 </header>
 
-  <img src="photo_cropped.jpg"
-     alt="Carmela Accettura"
-     class="img-fluid rounded shadow float-lg-end ms-lg-4 mb-3"
-     style="max-width:320px;">
-
-
-<section class="container">
-  <p>Welcome to my website!<p> <p>I am a PhD candidate in Economics at Universidad Carlos III de Madrid. My research interests are political economy, gender economics and economic history.</p>
-  </p>I will be on the 2025/2026 academic job market.</p>
-</section>
-
-
-
-
-<footer class="footer">© 2025 Carmela Accettura. Last updated: May 3, 2025.</footer>
+<footer class="footer text-center">© 2025 Carmela Accettura. Last updated: May 3, 2025.</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
