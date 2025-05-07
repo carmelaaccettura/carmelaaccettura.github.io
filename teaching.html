@@ -28,24 +28,26 @@
       border-radius:50%;
     }
 
-    /* struttura della lista insegnamenti */
-    .teach-item{
-      display:flex;
-      flex-wrap:wrap;          /* consente capo su mobile */
-      gap:.25rem 1rem;         /* spazio verticale / orizzontale */
-    }
+/* struttura della lista insegnamenti */
+.teach-item{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.25rem 1rem;       /* spaziatura */
+}
 
-    /* descrizione: sempre piena larghezza, così il badge va a capo */
-    .teach-desc{
-      flex:1 0 100%;           /* grow 0? yes fixed row; basis 100% */
-    }
+/* 1️⃣  la descrizione prende SEMPRE l’intera riga   */
+.teach-desc{
+  flex:1 0 100%;         /* grow:1 | shrink:0 | basis:100%  */
+}
 
-    /* badge: larghezza naturale, niente shrink */
-    .badge-te{
-      flex:0 0 auto;
-      white-space:nowrap;
-      padding-left:1.5rem;     /* indent per allineare con testo */
-    }
+/* 2️⃣  il badge va a capo, resta largo quanto il testo
+      3️⃣  e volendo lo indenti un po’ (facoltativo)       */
+.badge-te{
+  flex:0 0 auto;         /* niente crescita, niente shrink */
+  white-space:nowrap;
+  padding-left:1.5rem;   /* indent per allinearlo col testo */
+}
+
   </style>
 </head>
 <body>
