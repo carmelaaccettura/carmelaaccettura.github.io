@@ -21,4 +21,7 @@ h1, h2     { font-weight: 700; }
     max-width: 880px;
   }
 }
-
+/* --- NAVBAR DARK BACKGROUND SOLO QUANDO IL TEMA È DARK --- */
+html[data-bs-theme='dark'] .navbar {
+  background-color: #212529;   /* lo stesso grigio scuro del body */
+}
