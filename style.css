@@ -55,5 +55,11 @@ html[data-bs-theme='dark'] .navbar {
   }
 }
 
+/* forza il badge a mandarsi a capo */
+.teach-item .badge-te{
+  flex-basis: 100%;      /* prende una “riga” intera */
+  margin-top: .25rem;    /* piccolo respiro sotto il testo */
+}
+
 
 
