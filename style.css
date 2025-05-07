@@ -28,7 +28,17 @@ html[data-bs-theme='dark'] .navbar {
   }
 }
 
-@media (min-width:992px){ .navbar .container{ max-width:860px } }
+/* allinea la navbar al resto del layout */
+@media (min-width: 992px) {          /* breakpoint "lg" di Bootstrap 5 */
+  .navbar {
+    /* due modi equivalenti – scegline uno */
+    /* 1. sovrascrivi la variabile */
+    --bs-navbar-padding-x: 0;
 
-img.headshot{ max-width:300px }
+    /* 2. oppure azzera direttamente il padding */
+    /* padding-left: 0; */
+    /* padding-right: 0; */
+  }
+}
+
 
