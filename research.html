@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it">
+<html lang="it" data-bs-theme="auto">
 <head>
   <meta charset="utf-8">
   <title>Carmela Accettura – Research</title>
@@ -7,40 +7,59 @@
   <!-- responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap & stile personalizzato -->
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <!-- Bootstrap Icons (sole / luna) -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Font Awesome (e-mail / social) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-n9GthLgIL3Ri6NLPY+zUuTXR+..."
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Il tuo foglio di stile -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- padding coerente per il bottone tema -->
+  <style>
+    #themeToggle.nav-link{
+      padding-left:.75rem;
+      padding-right:.75rem;
+      border-radius:50%;
+    }
+  </style>
 </head>
 <body>
 
-<!-- █████ NAVBAR (identica alla home) -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- █████ NAVBAR -->
+<nav class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand" href="index.html">Carmela Accettura</a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
-            aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#menu" aria-controls="menu" aria-expanded="false"
+            aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="menu">
-     <!-- NAVBAR – research.html -->
-<ul class="navbar-nav ms-auto">
-  <li class="nav-item">
-    <a class="nav-link"             href="index.html">About</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="research.html">Research</a>
-  </li>
-   <li class="nav-item">
-    <a class="nav-link"             href="teaching.html">Teaching</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link"             href="cv.html">CV</a>
-  </li>
-</ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link"             href="index.html">About</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="research.html">Research</a></li>
+        <li class="nav-item"><a class="nav-link"             href="teaching.html">Teaching</a></li>
+        <li class="nav-item"><a class="nav-link"             href="cv.html">CV</a></li>
 
+        <!-- ▼ interruttore tema -->
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="themeToggle" aria-label="Toggle theme">
+            <i class="bi bi-sun-fill" id="theme-icon"></i>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
@@ -66,67 +85,11 @@
         › <span class="text-muted">Draft available soon</span>
       </span>
 
-      <!-- abstract nascosto -->
       <div class="collapse mt-2" id="abs-bella-ciao">
         <p class="mb-0">
-          <!-- Inserisci qui il testo dell’abstract -->
-          What happens when women actively participate in conflict? This paper answers this question by leveraging the case of women in the Italian Resistance during World War II. Using a newly constructed microlevel dataset that covers more than 200,000 Resistance members in 3,000 municipalities, I provide the first systematic evidence that women’s direct participation in conflict can drive lasting changes in gender norms and political representation. Municipalities where women joined the Resistance exhibit stronger support for women’s rights and a higher likelihood of electing women to national office, effects that persist to this day. These women catalyzed a cultural transformation by stepping into traditionally male roles, demonstrating how even a brief rupture in gender norms can generate enduring institutional and behavioral change. These findings shed new light on the historical roots of gender inequality and reveal how moments of disruption can permanently reshape the trajectory of women’s empowerment.
+          What happens when women actively participate in conflict? This paper answers this question by leveraging the case of women in the Italian Resistance during World War II. Using a newly constructed micro-level dataset that covers more than 200 000 Resistance members in 3 000 municipalities, I provide the first systematic evidence that women’s direct participation in conflict can drive lasting changes in gender norms and political representation. Municipalities where women joined the Resistance exhibit stronger support for women’s rights and a higher likelihood of electing women to national office, effects that persist to this day. These women catalyzed a cultural transformation by stepping into traditionally male roles, demonstrating how even a brief rupture in gender norms can generate enduring institutional and behavioral change. These findings shed new light on the historical roots of gender inequality and reveal how moments of disruption can permanently reshape the trajectory of women’s empowerment.
         </p>
       </div>
     </li>
 
-    <!-- Paper 2 -->
-    <li class="mb-4">
-      <em>Gender Differences in Political Budget Cycles</em>
-    <span class="text-muted">
-  (with
-  <a href="https://sites.google.com/view/paola-profeta"
-     class="text-muted"
-     target="_blank"
-     rel="noopener">
-    Paola Profeta</a>)
-</span><br>
-      <span class="small">
-        › <a class="link-primary" data-bs-toggle="collapse"
-             href="#abs-gender" role="button"
-             aria-expanded="false" aria-controls="abs-gender">Abstract</a>
-        › <a href="accettura_c31444.pdf">Paper</a>
-      </span>
-
-      <!-- abstract nascosto -->
-      <div class="collapse mt-2" id="abs-gender">
-        <p class="mb-0">
-          <!-- Inserisci qui il testo dell’abstract -->
-          Men and women differ in political behaviour and leadership style. Does the gender of politicians affect the engagement in political budget cycles? We provide empirical evidence on gender differences in political budget cycles by exploiting mixed-gender races among mayoral candidates in Italian municipalities in the period 2002-2017. Using a Regression Discontinuity Design, we show that male mayors who are elected by a small margin against a female opponent are more likely to engage in strategic spending at pre-electoral and electoral years, as compared to female mayors. That is particularly true for highly visible policies with immediate benefits, such as roads construction and maintenance, transportation, green areas and waste disposal. Ultimately, we find these cycles to be detrimental for the budget balance of the municipality, but having no impact on reelection outcomes.
-        </p>
-      </div>
-    </li>
-
-  </ul>
-</section>
-
-
-<hr class="my-5">
-
-<!-- █████ WORK IN PROGRESS -->
-<section class="container mb-5">
-  <h2 class="h4 fw-bold section-heading pb-2 mb-4">Work in Progress</h2>
-
-  <ul class="list-unstyled">
-
-     <li class="mb-4">
-      <em>Education and fertility in Italy
-after university access reform in the 1960s</em>
-      <span class="text-muted">(with Paolo Piselli)</span>
-    </li>
-  </ul>
-</section>
-
-<!-- █████ FOOTER -->
-<footer class="footer text-center">
-  © 2025 Carmela Accettura.
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <!-- Paper
