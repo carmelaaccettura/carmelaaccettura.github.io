@@ -116,5 +116,54 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ▼ NUOVO  -->
+<script>
+(() => {
+  const html = document.documentElement;
+  const icon = document.getElementById('theme-icon');
+  const buttons = document.querySelectorAll('[data-theme-value]');
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+  // cambia icona in base a tema
+  const iconFor = (theme, sysDark) => (
+    theme === 'light' ? 'bi-sun-fill' :
+    theme === 'dark'  ? 'bi-moon-stars-fill' :
+    sysDark ? 'bi-moon-stars-fill' : 'bi-sun-fill'
+  );
+
+  function apply(theme) {
+    localStorage.setItem('theme', theme);
+    theme === 'auto'
+      ? html.removeAttribute('data-bs-theme')
+      : html.setAttribute('data-bs-theme', theme);
+
+    const sysDark = media.matches;
+    icon.className = 'bi ' +
+      (theme === 'auto' ? 'bi-circle-half ' : '') +
+      iconFor(theme, sysDark);
+
+    buttons.forEach(b =>
+      b.classList.toggle('active', b.dataset.themeValue === theme)
+    );
+  }
+
+  // ascolta click
+  buttons.forEach(b =>
+    b.addEventListener('click', () => apply(b.dataset.themeValue))
+  );
+
+  // se il sistema cambia mentre siamo su auto
+  media.addEventListener('change', () => {
+    if ((localStorage.getItem('theme')||'auto')==='auto') apply('auto');
+  });
+
+  // init
+  apply(localStorage.getItem('theme') || 'auto');
+})();
+</script>
+</body>
+
 </body>
 </html>
