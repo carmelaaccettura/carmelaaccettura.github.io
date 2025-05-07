@@ -1,3 +1,24 @@
-body {font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.6;}
-h1, h2 {font-weight: 700;}
-.footer {font-size: .9rem; color: #666; margin: 4rem 0 2rem; text-align: center;}
+/* ---------------------------------------
+   TIPOGRAFIA & FOOTER  (tuo codice)
+--------------------------------------- */
+body       { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.6; }
+h1, h2     { font-weight: 700; }
+.footer    { font-size: .9rem; color: #666; margin: 4rem 0 2rem; text-align: center; }
+
+/* ---------------------------------------
+   CONTENITORE PIÙ STRETTO (nuovo codice)
+--------------------------------------- */
+@media (min-width: 992px) {          /* breakpoint "lg" di Bootstrap 5 */
+  .container {
+    max-width: 860px;                /* larghezza simile al sito di Claudio   */
+  }
+}
+
+/* opzionale: leggermente più largo fra 1200-1399 px             */
+/* (togli o modifica se preferisci la stessa larghezza ovunque)  */
+@media (min-width: 1200px) {         /* breakpoint "xl" di Bootstrap 5 */
+  .container {
+    max-width: 880px;
+  }
+}
+
