@@ -55,10 +55,10 @@ html[data-bs-theme='dark'] .navbar {
   }
 }
 
-/* forza il badge a mandarsi a capo */
+/* forza il badge a mandarsi a capo e a restare largo tutta la riga */
 .teach-item .badge-te{
-  flex-basis: 100%;      /* prende una “riga” intera */
-  margin-top: .25rem;    /* piccolo respiro sotto il testo */
+  flex: 0 0 100%;      /*  ⬅︎  grow  shrink  basis  */
+  margin-top: .25rem;  /*  piccolo respiro sotto la descrizione */
 }
 
 
