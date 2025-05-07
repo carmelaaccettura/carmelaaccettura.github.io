@@ -1,70 +1,90 @@
 <!doctype html>
-<html lang="it">
+<html lang="it" data-bs-theme="auto">
 <head>
   <meta charset="utf-8">
   <title>Carmela Accettura – About</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-n9GthLgIL3Ri6NLPY+zUuTXR+..."
-      crossorigin="anonymous" referrerpolicy="no-referrer">
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <!-- Font Awesome (e-mail / social) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-n9GthLgIL3Ri6NLPY+zUuTXR+..." crossorigin="anonymous"
+        referrerpolicy="no-referrer">
+
+  <!-- Bootstrap Icons (sole / luna) -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Il tuo foglio di stile -->
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- padding coerente per il bottone tema -->
+  <style>
+    #themeMenu.nav-link {               /* stessa spaziatura degli altri link */
+      padding-left: .75rem;
+      padding-right: .75rem;
+      border-radius: 50%;
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- █████ NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <a class="navbar-brand" href="index.html">Carmela Accettura</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+            aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="menu">
-<ul class="navbar-nav ms-auto">
-  <li class="nav-item">
-    <a class="nav-link active"      aria-current="page" href="index.html">About</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link"             href="research.html">Research</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link"             href="teaching.html">Teaching</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link"             href="cv.html">CV</a>
-  </li>
-  <li class="nav-item dropdown">
-  <a class="nav-link px-2" href="#" id="themeMenu" role="button"
-     data-bs-toggle="dropdown" aria-expanded="false">
-    <i class="bi" id="theme-icon"></i>
-  </a>
-  <ul class="dropdown-menu dropdown-menu-end text-small shadow"
-      aria-labelledby="themeMenu" style="min-width: 9rem;">
-    <li><button class="dropdown-item" data-theme-value="light">
-          <i class="bi bi-sun-fill me-2"></i>Light
-        </button></li>
-    <li><button class="dropdown-item" data-theme-value="dark">
-          <i class="bi bi-moon-stars-fill me-2"></i>Dark
-        </button></li>
-    <li><button class="dropdown-item" data-theme-value="auto">
-          <i class="bi bi-circle-half me-2"></i>Automatic
-        </button></li>
-  </ul>
-</li>
 
-</ul>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active"  aria-current="page" href="index.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
+        <li class="nav-item"><a class="nav-link" href="teaching.html">Teaching</a></li>
+        <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
+
+        <!-- ▼ Theme toggle -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="themeMenu" role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+            <i class="bi bi-circle-half" id="theme-icon"></i>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end text-small shadow"
+              aria-labelledby="themeMenu" style="min-width: 9rem;">
+            <li>
+              <button type="button" class="dropdown-item" data-theme-value="light">
+                <i class="bi bi-sun-fill me-2"></i>Light
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-theme-value="dark">
+                <i class="bi bi-moon-stars-fill me-2"></i>Dark
+              </button>
+            </li>
+            <li>
+              <button type="button" class="dropdown-item" data-theme-value="auto">
+                <i class="bi bi-circle-half me-2"></i>Automatic
+              </button>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- █████ HERO -->
 <header class="container mt-5">
   <div class="row align-items-start gy-4">
-
-    <!-- TESTO -->
     <div class="col-lg-8">
       <h1 class="display-4 fw-bold">
         Carmela <span class="accent">Accettura</span>
@@ -72,99 +92,100 @@
 
       <p class="lead mb-4">Welcome to my website!</p>
 
-<p>I am a PhD candidate in Economics at Universidad Carlos III de Madrid.
-   My research interests are political economy, gender economics and
-   economic history. My supervisor is
-   <a href="https://sites.google.com/site/luigiminale/home"
-      target="_blank"
-      rel="noopener">
-     Luigi Minale</a>.
-</p>
+      <p>I am a PhD candidate in Economics at Universidad Carlos III de Madrid.
+         My research interests are political economy, gender economics, and economic history.
+         My supervisor is
+         <a href="https://sites.google.com/site/luigiminale/home" target="_blank" rel="noopener">
+           Luigi Minale
+         </a>.
+      </p>
 
-</p>In Spring 2025, I visited the Vancouver School of Economics, University of British Columbia, under the guidance of Nathan Nunn.</p>
+      <p>During Spring 2025 I joined the Vancouver School of Economics at UBC as a visiting scholar,
+         under the guidance of
+         <a href="https://nathannunn.com" target="_blank" rel="noopener">Nathan Nunn</a>.
+      </p>
 
-      <p>You can download my complete CV <a href="autoCV (1).pdf" target="_blank">here</a>.</p>
+      <p>You can download my complete CV
+         <a href="autoCV (1).pdf" target="_blank" rel="noopener">here</a>.
+      </p>
 
       <p>I will be on the <strong>2025 / 2026 academic job market</strong>.</p>
     </div>
 
-    <!-- FOTO -->
     <div class="col-lg-4 text-lg-end text-center">
       <img src="photo_cropped.jpg"
            alt="Carmela Accettura"
            class="img-fluid rounded shadow mb-3"
            style="max-width:330px;">
     </div>
-
   </div>
 </header>
+
 <!-- █████ SOCIAL -->
 <section class="container text-center my-5">
-
   <div class="d-flex justify-content-center gap-4 fs-2 social-links">
-
-    <!-- e-mail -->
     <a href="mailto:caccettu@eco.uc3m.es" aria-label="Email">
       <i class="fa-solid fa-envelope"></i>
     </a>
-
+    <!-- aggiungi altre icone se vuoi -->
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- █████ FOOTER -->
 <footer class="footer text-center">
   © 2025 Carmela Accettura. Last updated: May 3, 2025.
 </footer>
 
+<!-- Bootstrap JS + Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- ▼ NUOVO  -->
+<!-- ███ SCRIPT TEMA -->
 <script>
 (() => {
-  const html = document.documentElement;
-  const icon = document.getElementById('theme-icon');
-  const buttons = document.querySelectorAll('[data-theme-value]');
-  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  const html   = document.documentElement;
+  const iconEl = document.getElementById('theme-icon');
+  const btns   = document.querySelectorAll('[data-theme-value]');
+  const darkMQ = window.matchMedia('(prefers-color-scheme: dark)');
 
-  // cambia icona in base a tema
-  const iconFor = (theme, sysDark) => (
-    theme === 'light' ? 'bi-sun-fill' :
-    theme === 'dark'  ? 'bi-moon-stars-fill' :
-    sysDark ? 'bi-moon-stars-fill' : 'bi-sun-fill'
-  );
+  // restituisce la classe icona giusta
+  const iconFor = (t, sysDark) =>
+    t === 'light' ? 'bi-sun-fill' :
+    t === 'dark'  ? 'bi-moon-stars-fill' :
+    sysDark       ? 'bi-moon-stars-fill' : 'bi-sun-fill';
 
   function apply(theme) {
     localStorage.setItem('theme', theme);
-    theme === 'auto'
-      ? html.removeAttribute('data-bs-theme')
-      : html.setAttribute('data-bs-theme', theme);
 
-    const sysDark = media.matches;
-    icon.className = 'bi ' +
+    // imposta davvero il tema
+    if (theme === 'auto') {
+      html.setAttribute('data-bs-theme', darkMQ.matches ? 'dark' : 'light');
+    } else {
+      html.setAttribute('data-bs-theme', theme);
+    }
+
+    // icona e menu attivo
+    iconEl.className = 'bi ' +
       (theme === 'auto' ? 'bi-circle-half ' : '') +
-      iconFor(theme, sysDark);
+      iconFor(theme, darkMQ.matches);
 
-    buttons.forEach(b =>
+    btns.forEach(b =>
       b.classList.toggle('active', b.dataset.themeValue === theme)
     );
   }
 
-  // ascolta click
-  buttons.forEach(b =>
+  // click sul menu
+  btns.forEach(b =>
     b.addEventListener('click', () => apply(b.dataset.themeValue))
   );
 
-  // se il sistema cambia mentre siamo su auto
-  media.addEventListener('change', () => {
-    if ((localStorage.getItem('theme')||'auto')==='auto') apply('auto');
+  // variazione di sistema quando siamo in Auto
+  darkMQ.addEventListener('change', () => {
+    if ((localStorage.getItem('theme') || 'auto') === 'auto') apply('auto');
   });
 
   // init
   apply(localStorage.getItem('theme') || 'auto');
 })();
 </script>
-</body>
-
 </body>
 </html>
