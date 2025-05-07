@@ -1,22 +1,41 @@
 <!doctype html>
-<html lang="it">
+<html lang="it" data-bs-theme="auto">
 <head>
   <meta charset="utf-8">
   <title>Carmela Accettura – CV</title>
 
+  <!-- responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <!-- Bootstrap Icons (sole / luna) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Font Awesome (facoltativo) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-n9GthLgIL3Ri6NLPY+zUuTXR+..." crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- tuo foglio di stile principale -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- padding coerente per il bottone tema -->
+  <style>
+    #themeToggle.nav-link{
+      padding-left:.75rem;
+      padding-right:.75rem;
+      border-radius:50%;
+    }
+  </style>
 </head>
 <body>
 
-<!-- █████ NAVBAR (copiata e aggiornata) -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- █████ NAVBAR -->
+<nav class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand" href="index.html">Carmela Accettura</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
-            aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -24,24 +43,25 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link"             href="index.html">About</a></li>
         <li class="nav-item"><a class="nav-link"             href="research.html">Research</a></li>
-                <li class="nav-item"><a class="nav-link"             href="teaching.html">Teaching</a></li>
+        <li class="nav-item"><a class="nav-link"             href="teaching.html">Teaching</a></li>
         <li class="nav-item"><a class="nav-link active" aria-current="page" href="cv.html">CV</a></li>
+
+        <!-- ▼ interruttore tema -->
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="themeToggle" aria-label="Toggle theme">
+            <i class="bi bi-sun-fill" id="theme-icon"></i>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 
-
 <!-- █████ EMBED / DOWNLOAD -->
-<section class="container mb-5">
-
-  <!-- 👉 embed opzionale: rimuovi se non vuoi incorporarlo -->
+<section class="container my-5">
   <div class="ratio ratio-4x3 shadow rounded">
-    <iframe src="autoCV (1).pdf"
-            title="CV – Carmela Accettura"
-            loading="lazy"></iframe>
+    <iframe src="autoCV (1).pdf" title="CV – Carmela Accettura" loading="lazy"></iframe>
   </div>
-
 </section>
 
 <!-- █████ FOOTER -->
@@ -49,6 +69,44 @@
   © 2025 Carmela Accettura.
 </footer>
 
+<!-- Bootstrap JS + Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ███ SCRIPT TEMA (identico alle altre pagine) -->
+<script>
+(() => {
+  const root   = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const icon   = document.getElementById('theme-icon');
+  const darkMQ = window.matchMedia('(prefers-color-scheme: dark)');
+
+  const setIcon = t =>
+    icon.className = 'bi ' + (t === 'dark' ? 'bi-moon-stars-fill' : 'bi-sun-fill');
+
+  const apply = t => {
+    root.setAttribute('data-bs-theme', t);
+    localStorage.setItem('theme', t);
+    setIcon(t);
+  };
+
+  // inizializzazione
+  (() => {
+    const saved = localStorage.getItem('theme');
+    apply(saved === 'light' || saved === 'dark' ? saved : (darkMQ.matches ? 'dark' : 'light'));
+  })();
+
+  // click → toggle
+  toggle.addEventListener('click', e => {
+    e.preventDefault();
+    apply(root.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  // se l'utente non ha scelto e cambia la preferenza di sistema
+  darkMQ.addEventListener('change', () => {
+    if (!localStorage.getItem('theme'))
+      apply(darkMQ.matches ? 'dark' : 'light');
+  });
+})();
+</script>
 </body>
 </html>
