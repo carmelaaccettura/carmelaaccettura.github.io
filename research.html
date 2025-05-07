@@ -15,13 +15,13 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-  <!-- Font Awesome (e-mail / social) -->
+  <!-- Font Awesome (email / social) -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-n9GthLgIL3Ri6NLPY+zUuTXR+..."
         crossorigin="anonymous" referrerpolicy="no-referrer">
 
-  <!-- Il tuo foglio di stile -->
+  <!-- il tuo foglio di stile -->
   <link rel="stylesheet" href="style.css">
 
   <!-- padding coerente per il bottone tema -->
@@ -92,4 +92,91 @@
       </div>
     </li>
 
-    <!-- Paper
+    <!-- Paper 2 -->
+    <li class="mb-4">
+      <em>Gender Differences in Political Budget Cycles</em>
+      <span class="text-muted">
+        (with
+        <a href="https://sites.google.com/view/paola-profeta"
+           class="text-muted"
+           target="_blank" rel="noopener">Paola Profeta</a>)
+      </span><br>
+      <span class="small">
+        › <a class="link-primary" data-bs-toggle="collapse"
+             href="#abs-gender" role="button"
+             aria-expanded="false" aria-controls="abs-gender">Abstract</a>
+        › <a href="accettura_c31444.pdf">Paper</a>
+      </span>
+
+      <div class="collapse mt-2" id="abs-gender">
+        <p class="mb-0">
+          Men and women differ in political behaviour and leadership style. Does the gender of politicians affect engagement in political budget cycles? We exploit mixed-gender mayoral races in Italian municipalities (2002-2017) using a Regression Discontinuity Design. Male mayors elected by a small margin against a female opponent are more likely to engage in strategic spending before and during elections, especially on highly visible projects such as roads, transport and waste disposal. These cycles worsen the municipal budget without improving re-election chances.
+        </p>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+<hr class="my-5">
+
+<!-- █████ WORK IN PROGRESS -->
+<section class="container mb-5">
+  <h2 class="h4 fw-bold section-heading pb-2 mb-4">Work in Progress</h2>
+
+  <ul class="list-unstyled">
+    <li class="mb-4">
+      <em>Education and fertility in Italy after the university access reform in the 1960s</em>
+      <span class="text-muted">(with Paolo Piselli)</span>
+    </li>
+  </ul>
+</section>
+
+<!-- █████ FOOTER -->
+<footer class="footer text-center">
+  © 2025 Carmela Accettura.
+</footer>
+
+<!-- Bootstrap JS + Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ███ SCRIPT TEMA -->
+<script>
+(() => {
+  const root   = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const icon   = document.getElementById('theme-icon');
+  const darkMQ = window.matchMedia('(prefers-color-scheme: dark)');
+
+  const setIcon = t =>
+    icon.className = 'bi ' + (t === 'dark' ? 'bi-moon-stars-fill' : 'bi-sun-fill');
+
+  const apply = t => {
+    root.setAttribute('data-bs-theme', t);
+    localStorage.setItem('theme', t);
+    setIcon(t);
+  };
+
+  // inizializza
+  (() => {
+    const saved = localStorage.getItem('theme');
+    apply(saved === 'light' || saved === 'dark'
+          ? saved
+          : (darkMQ.matches ? 'dark' : 'light'));
+  })();
+
+  // click → toggle
+  toggle.addEventListener('click', e => {
+    e.preventDefault();
+    apply(root.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  // cambio di sistema se l’utente non ha scelto
+  darkMQ.addEventListener('change', () => {
+    if (!localStorage.getItem('theme'))
+      apply(darkMQ.matches ? 'dark' : 'light');
+  });
+})();
+</script>
+</body>
+</html>
