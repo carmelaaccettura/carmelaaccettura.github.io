@@ -25,11 +25,13 @@
 
   <!-- padding coerente per il bottone tema -->
   <style>
-    #themeMenu.nav-link {               /* stessa spaziatura degli altri link */
-      padding-left: .75rem;
-      padding-right: .75rem;
-      border-radius: 50%;
-    }
+   /* padding coerente per il bottone tema */
+#themeToggle.nav-link {
+  padding-left: .75rem;
+  padding-right: .75rem;
+  border-radius: 50%;
+}
+
   </style>
 </head>
 <body>
@@ -137,47 +139,45 @@
 <!-- ███ SCRIPT TEMA -->
 <script>
 (() => {
-  const html   = document.documentElement;
-  const iconEl = document.getElementById('theme-icon');
-  const btns   = document.querySelectorAll('[data-theme-value]');
-  const darkMQ = window.matchMedia('(prefers-color-scheme: dark)');
+  const root      = document.documentElement;
+  const toggle    = document.getElementById('themeToggle');
+  const icon      = document.getElementById('theme-icon');
+  const darkMQ    = window.matchMedia('(prefers-color-scheme: dark)');
 
-  // ► icona corretta per ciascun tema
-  const iconFor = (t) => (
-    t === 'light' ? 'bi-sun-fill' :
-    t === 'dark'  ? 'bi-moon-stars-fill' :
-    'bi-circle-half'              // auto
-  );
+  // cambia l’icona in base al tema
+  const setIcon = t =>
+    icon.className = 'bi ' + (t === 'dark' ? 'bi-moon-stars-fill' : 'bi-sun-fill');
 
-  function apply(theme) {
-    localStorage.setItem('theme', theme);
+  // applica tema + salva scelta + icona
+  const apply = t => {
+    root.setAttribute('data-bs-theme', t);
+    localStorage.setItem('theme', t);
+    setIcon(t);
+  };
 
-    // imposta davvero il tema
-    if (theme === 'auto') {
-      html.setAttribute('data-bs-theme', darkMQ.matches ? 'dark' : 'light');
-    } else {
-      html.setAttribute('data-bs-theme', theme);
-    }
+  // tema iniziale: salvato? altrimenti preferenza di sistema
+  const init = () => {
+    const saved = localStorage.getItem('theme');
+    apply(saved === 'light' || saved === 'dark'
+          ? saved
+          : (darkMQ.matches ? 'dark' : 'light'));
+  };
 
-    // aggiorna icona + active
-    iconEl.className = 'bi ' + iconFor(theme);
-    btns.forEach(b =>
-      b.classList.toggle('active', b.dataset.themeValue === theme)
-    );
-  }
-
-  // click
-  btns.forEach(b => b.addEventListener('click', () => apply(b.dataset.themeValue)));
-
-  // cambio sistema quando siamo in Auto
-  darkMQ.addEventListener('change', () => {
-    if ((localStorage.getItem('theme') || 'auto') === 'auto') apply('auto');
+  // click → inverte tema
+  toggle.addEventListener('click', e => {
+    e.preventDefault();
+    apply(root.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
   });
 
-  // init
-  apply(localStorage.getItem('theme') || 'auto');
+  // se l’utente NON ha scelto e il sistema cambia tema
+  darkMQ.addEventListener('change', () => {
+    if (!localStorage.getItem('theme')) apply(darkMQ.matches ? 'dark' : 'light');
+  });
+
+  init();            // parte tutto
 })();
 </script>
+
 
 </body>
 </html>
