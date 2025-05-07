@@ -27,3 +27,8 @@ html[data-bs-theme='dark'] .navbar {
     max-width: 880px;
   }
 }
+
+@media (min-width:992px){ .navbar .container{ max-width:860px } }
+
+img.headshot{ max-width:300px }
+
