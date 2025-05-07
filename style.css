@@ -41,4 +41,19 @@ html[data-bs-theme='dark'] .navbar {
   }
 }
 
+/* allinea la navbar alle altre .container                                   */
+/* NB: solo da lg in su, per non togliere spazio sugli schermi piccoli       */
+@media (min-width: 992px) {            /* breakpoint "lg" di Bootstrap 5 */
+  .navbar {
+    /* Variante 1 – più robusta: azzero direttamente il padding */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+    /* facoltativo: lascio comunque la variabile aggiornata,
+       così la usano eventuali componenti custom              */
+    --bs-navbar-padding-x: 0;
+  }
+}
+
+
 
