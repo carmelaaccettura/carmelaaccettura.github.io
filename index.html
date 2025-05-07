@@ -100,9 +100,8 @@
          </a>.
       </p>
 
-      <p>During Spring 2025 I joined the Vancouver School of Economics at UBC as a visiting scholar,
-         under the guidance of
-         <a href="https://nathannunn.com" target="_blank" rel="noopener">Nathan Nunn</a>.
+      <p>During Spring 2025 I visited the Vancouver School of Economics University, University of British Columbia,
+         under the guidance of Nathan Nunn.
       </p>
 
       <p>You can download my complete CV
@@ -147,11 +146,12 @@
   const btns   = document.querySelectorAll('[data-theme-value]');
   const darkMQ = window.matchMedia('(prefers-color-scheme: dark)');
 
-  // restituisce la classe icona giusta
-  const iconFor = (t, sysDark) =>
+  // ► icona corretta per ciascun tema
+  const iconFor = (t) => (
     t === 'light' ? 'bi-sun-fill' :
     t === 'dark'  ? 'bi-moon-stars-fill' :
-    sysDark       ? 'bi-moon-stars-fill' : 'bi-sun-fill';
+    'bi-circle-half'              // auto
+  );
 
   function apply(theme) {
     localStorage.setItem('theme', theme);
@@ -163,22 +163,17 @@
       html.setAttribute('data-bs-theme', theme);
     }
 
-    // icona e menu attivo
-    iconEl.className = 'bi ' +
-      (theme === 'auto' ? 'bi-circle-half ' : '') +
-      iconFor(theme, darkMQ.matches);
-
+    // aggiorna icona + active
+    iconEl.className = 'bi ' + iconFor(theme);
     btns.forEach(b =>
       b.classList.toggle('active', b.dataset.themeValue === theme)
     );
   }
 
-  // click sul menu
-  btns.forEach(b =>
-    b.addEventListener('click', () => apply(b.dataset.themeValue))
-  );
+  // click
+  btns.forEach(b => b.addEventListener('click', () => apply(b.dataset.themeValue)));
 
-  // variazione di sistema quando siamo in Auto
+  // cambio sistema quando siamo in Auto
   darkMQ.addEventListener('change', () => {
     if ((localStorage.getItem('theme') || 'auto') === 'auto') apply('auto');
   });
@@ -187,5 +182,6 @@
   apply(localStorage.getItem('theme') || 'auto');
 })();
 </script>
+
 </body>
 </html>
