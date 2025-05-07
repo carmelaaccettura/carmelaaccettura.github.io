@@ -5,6 +5,12 @@ body       { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif
 h1, h2     { font-weight: 700; }
 .footer    { font-size: .9rem; color: #666; margin: 4rem 0 2rem; text-align: center; }
 
+/* --- NAVBAR DARK BACKGROUND SOLO QUANDO IL TEMA È DARK --- */
+html[data-bs-theme='dark'] .navbar {
+  background-color: #212529;   /* lo stesso grigio scuro del body */
+}
+
+
 /* ---------------------------------------
    CONTENITORE PIÙ STRETTO (nuovo codice)
 --------------------------------------- */
@@ -20,8 +26,4 @@ h1, h2     { font-weight: 700; }
   .container {
     max-width: 880px;
   }
-}
-/* --- NAVBAR DARK BACKGROUND SOLO QUANDO IL TEMA È DARK --- */
-html[data-bs-theme='dark'] .navbar {
-  background-color: #212529;   /* lo stesso grigio scuro del body */
 }
