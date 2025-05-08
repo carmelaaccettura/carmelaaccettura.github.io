@@ -20,29 +20,41 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-  <!-- Il tuo foglio di stile -->
+  <!-- il tuo foglio di stile -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- padding coerente per il bottone tema -->
+  <!-- tweak rapidi -->
   <style>
-   /* padding coerente per il bottone tema */
-#themeToggle.nav-link {
-  padding-left: .75rem;
-  padding-right: .75rem;
-  border-radius: 50%;
-}
+    /* ① padding coerente per il bottone tema */
+    #themeToggle.nav-link{
+      padding-left:.75rem;
+      padding-right:.75rem;
+      border-radius:50%;
+    }
 
+    /* ② NELLA HOME nascondo il brand della navbar */
+    .home .navbar-brand{ display:none; }
+
+    /* ③ titoloni leggermente più piccoli (opzionale) */
+    .display-4{ font-size:2.25rem; }      /* desktop */
+    @media (max-width: 991.98px){
+      .display-4{ font-size:1.9rem; }      /* tablet-mobile */
+    }
   </style>
 </head>
-<body>
+
+<body class="home"><!--  ⬅︎  classe “home” per regola ② -->
 
 <!-- █████ NAVBAR -->
-<nav class="navbar navbar-expand-lg"> 
+<nav class="navbar navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand" href="index.html">Carmela Accettura</a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
-            aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- brand nascosto grazie a .home .navbar-brand{display:none;} -->
+    <a class="navbar-brand" href="index.html"></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#menu" aria-controls="menu"
+            aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -54,12 +66,11 @@
         <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
 
         <!-- ▼ Theme toggle -->
-       <li class="nav-item">
-  <a class="nav-link" href="#" id="themeToggle" aria-label="Toggle theme">
-    <!-- l’icona verrà aggiornata dallo script -->
-    <i class="bi bi-sun-fill" id="theme-icon"></i>
-  </a>
-</li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="themeToggle" aria-label="Toggle theme">
+            <i class="bi bi-sun-fill" id="theme-icon"></i>
+          </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -69,6 +80,11 @@
 <header class="container mt-5">
   <div class="row align-items-start gy-4">
     <div class="col-lg-8">
+
+      <!-- ④ TITOLONE ripristinato -->
+      <h1 class="display-4 fw-bold mb-3">
+        Carmela <span class="accent">Accettura</span>
+      </h1>
 
       <p class="lead mb-4">Welcome to my website!</p>
 
@@ -81,20 +97,18 @@
       </p>
 
       <p>In Spring 2025 I visited the Vancouver School of Economics at the University
-        of British Columbia, under the guidance of Nathan Nunn.
-      </p>
+         of British Columbia, under the guidance of Nathan Nunn.</p>
 
       <p>You can download my complete CV
-         <a href="autoCV (1).pdf" target="_blank" rel="noopener">here</a>.
-      </p>
+         <a href="autoCV (1).pdf" target="_blank" rel="noopener">here</a>.</p>
 
       <p>I will be on the <strong>2025 / 2026 academic job market</strong>.</p>
     </div>
 
     <div class="col-lg-4 text-lg-end text-center">
-<img src="photo_cropped.jpg"
-     alt="Carmela Accettura"
-     class="img-fluid rounded shadow mb-3 headshot">
+      <img src="photo_cropped.jpg"
+           alt="Carmela Accettura"
+           class="img-fluid rounded shadow mb-3 headshot">
     </div>
   </div>
 </header>
@@ -105,13 +119,13 @@
     <a href="mailto:caccettu@eco.uc3m.es" aria-label="Email">
       <i class="fa-solid fa-envelope"></i>
     </a>
-    <!-- aggiungi altre icone se vuoi -->
+    <!-- altre icone qui se vuoi -->
   </div>
 </section>
 
 <!-- █████ FOOTER -->
 <footer class="footer text-center">
-  © 2025 Carmela Accettura. Last updated: May 8, 2025.
+  © 2025 Carmela Accettura. Last updated: May 8 - 2025.
 </footer>
 
 <!-- Bootstrap JS + Popper -->
@@ -120,45 +134,35 @@
 <!-- ███ SCRIPT TEMA -->
 <script>
 (() => {
-  const root      = document.documentElement;
-  const toggle    = document.getElementById('themeToggle');
-  const icon      = document.getElementById('theme-icon');
-  const darkMQ    = window.matchMedia('(prefers-color-scheme: dark)');
+  const root   = document.documentElement;
+  const toggle = document.getElementById('themeToggle');
+  const icon   = document.getElementById('theme-icon');
+  const darkMQ = window.matchMedia('(prefers-color-scheme: dark)');
 
-  // cambia l’icona in base al tema
   const setIcon = t =>
     icon.className = 'bi ' + (t === 'dark' ? 'bi-moon-stars-fill' : 'bi-sun-fill');
 
-  // applica tema + salva scelta + icona
   const apply = t => {
     root.setAttribute('data-bs-theme', t);
     localStorage.setItem('theme', t);
     setIcon(t);
   };
 
-  // tema iniziale: salvato? altrimenti preferenza di sistema
-  const init = () => {
-    const saved = localStorage.getItem('theme');
-    apply(saved === 'light' || saved === 'dark'
-          ? saved
-          : (darkMQ.matches ? 'dark' : 'light'));
-  };
+  const saved = localStorage.getItem('theme');
+  apply(saved === 'light' || saved === 'dark'
+        ? saved
+        : (darkMQ.matches ? 'dark' : 'light'));
 
-  // click → inverte tema
   toggle.addEventListener('click', e => {
     e.preventDefault();
     apply(root.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark');
   });
 
-  // se l’utente NON ha scelto e il sistema cambia tema
   darkMQ.addEventListener('change', () => {
-    if (!localStorage.getItem('theme')) apply(darkMQ.matches ? 'dark' : 'light');
+    if (!localStorage.getItem('theme'))
+      apply(darkMQ.matches ? 'dark' : 'light');
   });
-
-  init();            // parte tutto
 })();
 </script>
-
-
 </body>
 </html>
