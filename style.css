@@ -55,10 +55,13 @@ html[data-bs-theme='dark'] .navbar {
   }
 }
 
-/* forza il badge a mandarsi a capo e a restare largo tutta la riga */
+/* badge → nuova riga, ma solo largo quanto serve */
 .teach-item .badge-te{
-  flex: 0 0 100%;      /*  ⬅︎  grow  shrink  basis  */
-  margin-top: .25rem;  /*  piccolo respiro sotto la descrizione */
+  flex: 0 0 auto;      /* grow:0  shrink:0  basis:auto   */
+  margin-top: .25rem;  /* respiro sotto la descrizione   */
+  /* opzionale per indentarli sotto il testo:  */
+  padding-left: 1.5rem;
+  /* o, se preferisci, usa direttamente margin-left */
 }
 
 
