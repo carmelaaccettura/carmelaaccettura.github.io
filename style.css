@@ -64,5 +64,16 @@ html[data-bs-theme='dark'] .navbar {
   /* o, se preferisci, usa direttamente margin-left */
 }
 
+/* dimensioni personalizzate per i display (titoli grandi) */
+@media (min-width: 992px){        /* desktop */
+  .display-4 { font-size: 2.25rem; }   /* default 2.5rem */
+  .display-3 { font-size: 2.75rem; }   /* default 3.5rem */
+}
+
+@media (max-width: 991.98px){     /* tablet + mobile */
+  .display-4 { font-size: 1.9rem; }    /* default 2rem */
+  .display-3 { font-size: 2.3rem; }    /* default 2.5rem */
+}
+
 
 
