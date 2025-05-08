@@ -1,7 +1,11 @@
 /* ---------------------------------------
    TIPOGRAFIA & FOOTER  (tuo codice)
 --------------------------------------- */
-body       { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.6; }
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  line-height: 1.6;
+  font-size: 1rem;    /* nuova riga */
+}
 h1, h2     { font-weight: 700; }
 .footer    { font-size: .9rem; color: #666; margin: 4rem 0 2rem; text-align: center; }
 
