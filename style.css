@@ -1,70 +1,70 @@
-/* ═══════════════════════════════════════
-   0. FONT — Noto Sans  (DEVE stare in cima)
-═══════════════════════════════════════ */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&display=swap');
-
-/* ═══════════════════════════════════════
-   1. TIPOGRAFIA & FOOTER
-═══════════════════════════════════════ */
-body {
-  font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+/* ---------------------------------------
+   TIPOGRAFIA & FOOTER  (tuo codice)
+--------------------------------------- */
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 1rem;    /* nuova riga */
 }
-
-h1, h2 { font-weight: 700; }
-
-.footer {
-  font-size: .9rem;
-  color: #666;
-  margin: 4rem 0 2rem;
-  text-align: center;
-}
-
-/* ═══════════════════════════════════════
-   2. NAVBAR — sfondo scuro solo in dark mode
-═══════════════════════════════════════ */
+h1, h2     { font-weight: 700; }
+.footer    { font-size: .9rem; color: #666; margin: 4rem 0 2rem; text-align: center; }
+/* --- NAVBAR DARK BACKGROUND SOLO QUANDO IL TEMA È DARK --- */
 html[data-bs-theme='dark'] .navbar {
-  background-color: #212529;   /* stesso grigio scuro del body */
+  background-color: #212529;   /* lo stesso grigio scuro del body */
 }
-
-/* ═══════════════════════════════════════
-   3. TEACHING — badge su nuova riga
-═══════════════════════════════════════ */
-.teach-item .badge-te {
-  flex: 0 0 auto;        /* grow:0  shrink:0  basis:auto */
-  margin-top: .25rem;    /* respiro sotto la descrizione */
-  padding-left: 1.5rem;  /* indentato sotto il testo */
+/* ---------------------------------------
+   CONTENITORE PIÙ STRETTO (nuovo codice)
+--------------------------------------- */
+@media (min-width: 992px) {          /* breakpoint "lg" di Bootstrap 5 */
+  .container {
+    max-width: 860px;                /* larghezza simile al sito di Claudio   */
+  }
 }
-
-/* ═══════════════════════════════════════
-   4. DESKTOP  (≥ 992px)
-═══════════════════════════════════════ */
-@media (min-width: 992px) {
-  /* contenitore più stretto */
-  .container { max-width: 860px; }
-
-  /* navbar allineata alle .container: azzero il padding orizzontale */
+/* opzionale: leggermente più largo fra 1200-1399 px             */
+/* (togli o modifica se preferisci la stessa larghezza ovunque)  */
+@media (min-width: 1200px) {         /* breakpoint "xl" di Bootstrap 5 */
+  .container {
+    max-width: 880px;
+  }
+}
+/* allinea la navbar al resto del layout */
+@media (min-width: 992px) {          /* breakpoint "lg" di Bootstrap 5 */
   .navbar {
+    /* due modi equivalenti – scegline uno */
+    /* 1. sovrascrivi la variabile */
+    --bs-navbar-padding-x: 0;
+    /* 2. oppure azzera direttamente il padding */
+    /* padding-left: 0; */
+    /* padding-right: 0; */
+  }
+}
+/* allinea la navbar alle altre .container                                   */
+/* NB: solo da lg in su, per non togliere spazio sugli schermi piccoli       */
+@media (min-width: 992px) {            /* breakpoint "lg" di Bootstrap 5 */
+  .navbar {
+    /* Variante 1 – più robusta: azzero direttamente il padding */
     padding-left: 0 !important;
     padding-right: 0 !important;
+    /* facoltativo: lascio comunque la variabile aggiornata,
+       così la usano eventuali componenti custom              */
     --bs-navbar-padding-x: 0;
   }
-
-  /* titoli grandi ridimensionati */
-  .display-4 { font-size: 2.25rem; }
-  .display-3 { font-size: 2.75rem; }
 }
-
-/* leggermente più largo sugli schermi xl */
-@media (min-width: 1200px) {
-  .container { max-width: 880px; }
+/* badge → nuova riga, ma solo largo quanto serve */
+.teach-item .badge-te{
+  flex: 0 0 auto;      /* grow:0  shrink:0  basis:auto   */
+  margin-top: .25rem;  /* respiro sotto la descrizione   */
+  /* opzionale per indentarli sotto il testo:  */
+  padding-left: 1.5rem;
+  /* o, se preferisci, usa direttamente margin-left */
 }
-
-/* ═══════════════════════════════════════
-   5. TABLET & MOBILE  (≤ 991.98px)
-═══════════════════════════════════════ */
-@media (max-width: 991.98px) {
-  .display-4 { font-size: 1.9rem; }
-  .display-3 { font-size: 2.3rem; }
+/* dimensioni personalizzate per i display (titoli grandi) */
+@media (min-width: 992px){        /* desktop */
+  .display-4 { font-size: 2.25rem; }   /* default 2.5rem */
+  .display-3 { font-size: 2.75rem; }   /* default 3.5rem */
 }
+@media (max-width: 991.98px){     /* tablet + mobile */
+  .display-4 { font-size: 1.9rem; }    /* default 2rem */
+  .display-3 { font-size: 2.3rem; }    /* default 2.5rem */
+}
+ questo è tutto lo style
