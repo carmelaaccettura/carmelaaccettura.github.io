@@ -23,24 +23,6 @@
   <!-- il tuo foglio di stile -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- tweak rapidi -->
-  <style>
-    /* ① padding coerente per il bottone tema */
-    #themeToggle.nav-link{
-      padding-left:.75rem;
-      padding-right:.75rem;
-      border-radius:50%;
-    }
-
-    /* ② NELLA HOME nascondo il brand della navbar */
-    .home .navbar-brand{ display:none; }
-
-    /* ③ titoloni leggermente più piccoli (opzionale) */
-    .display-4{ font-size:2.25rem; }      /* desktop */
-    @media (max-width: 991.98px){
-      .display-4{ font-size:1.9rem; }      /* tablet-mobile */
-    }
-  </style>
 </head>
 
 <body class="home"><!--  ⬅︎  classe “home” per regola ② -->
@@ -78,10 +60,10 @@
 
 <!-- █████ HERO -->
 <header class="container mt-5">
-  <div class="row align-items-start gy-4">
-    <div class="col-lg-8">
+  <div class="row align-items-center gy-4">
+    <div class="col-lg">
 
-      <h1 class="display-4 fw-bold mb-4">
+      <h1 class="display-4 mb-4">
         Carmela <span class="accent">Accettura</span>
       </h1>
 
@@ -105,10 +87,10 @@
 
     </div>
 
-    <div class="col-lg-4 text-lg-end text-center">
-      <img src="photo_cropped.jpg"
+    <div class="col-lg-auto text-center">
+      <img src="photo.jpg"
            alt="Carmela Accettura"
-           class="img-fluid rounded shadow mb-3 headshot">
+           class="img-fluid rounded shadow headshot">
     </div>
   </div>
 </header>

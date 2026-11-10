@@ -1,70 +1,92 @@
 /* ---------------------------------------
-   TIPOGRAFIA & FOOTER  (tuo codice)
+   TIPOGRAFIA & FOOTER
 --------------------------------------- */
 body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  line-height: 1.6;
-  font-size: 1rem;    /* nuova riga */
+  line-height: 1.65;
+  font-size: 1.125rem;          /* testo corrente (= bio della home) */
+}
+@media (max-width: 991.98px){   /* tablet + mobile */
+  body{ font-size: 1.05rem; }
 }
 h1, h2     { font-weight: 700; }
 .footer    { font-size: .9rem; color: #666; margin: 4rem 0 2rem; text-align: center; }
+
 /* --- NAVBAR DARK BACKGROUND SOLO QUANDO IL TEMA È DARK --- */
 html[data-bs-theme='dark'] .navbar {
   background-color: #212529;   /* lo stesso grigio scuro del body */
 }
+
 /* ---------------------------------------
-   CONTENITORE PIÙ STRETTO (nuovo codice)
+   LARGHEZZA CONTENITORE (tutte le pagine)
 --------------------------------------- */
 @media (min-width: 992px) {          /* breakpoint "lg" di Bootstrap 5 */
-  .container {
-    max-width: 860px;                /* larghezza simile al sito di Claudio   */
-  }
+  .container { max-width: 1000px; }
 }
-/* opzionale: leggermente più largo fra 1200-1399 px             */
-/* (togli o modifica se preferisci la stessa larghezza ovunque)  */
-@media (min-width: 1200px) {         /* breakpoint "xl" di Bootstrap 5 */
-  .container {
-    max-width: 880px;
-  }
+
+/* ---------------------------------------
+   NAVBAR
+--------------------------------------- */
+/* icona sole / luna: padding coerente */
+#themeToggle.nav-link{
+  padding-left: .75rem;
+  padding-right: .75rem;
+  border-radius: 50%;
 }
-/* allinea la navbar al resto del layout */
-@media (min-width: 992px) {          /* breakpoint "lg" di Bootstrap 5 */
+
+/* allinea la navbar alle altre .container (solo da lg in su,
+   per non togliere spazio sugli schermi piccoli)              */
+@media (min-width: 992px) {
   .navbar {
-    /* due modi equivalenti – scegline uno */
-    /* 1. sovrascrivi la variabile */
-    --bs-navbar-padding-x: 0;
-    /* 2. oppure azzera direttamente il padding */
-    /* padding-left: 0; */
-    /* padding-right: 0; */
-  }
-}
-/* allinea la navbar alle altre .container                                   */
-/* NB: solo da lg in su, per non togliere spazio sugli schermi piccoli       */
-@media (min-width: 992px) {            /* breakpoint "lg" di Bootstrap 5 */
-  .navbar {
-    /* Variante 1 – più robusta: azzero direttamente il padding */
     padding-left: 0 !important;
     padding-right: 0 !important;
-    /* facoltativo: lascio comunque la variabile aggiornata,
-       così la usano eventuali componenti custom              */
     --bs-navbar-padding-x: 0;
   }
 }
+
+/* ---------------------------------------
+   TITOLI GRANDI (nome in home, titoli di pagina)
+--------------------------------------- */
+.display-4{
+  font-size: 2.75rem;
+  font-weight: 400;              /* non in grassetto */
+  line-height: 1.1;
+  letter-spacing: -.01em;
+}
+@media (max-width: 991.98px){
+  .display-4{ font-size: 2.2rem; }
+}
+
+/* ---------------------------------------
+   HOME
+--------------------------------------- */
+.home .navbar-brand{ display: none; }            /* nella home niente brand */
+
+.home header.container{ padding-top: 5vh; }      /* blocco un po' più in basso */
+
+.home .lead{ font-size: inherit; }              /* sottotitolo = testo (18px) */
+
+.home header p:not(.lead){ max-width: 62ch; }    /* righe non troppo lunghe */
+
+.headshot{ width: 330px; max-width: 100%; }      /* foto fino a 330px */
+
+@media (min-width: 992px){                       /* più spazio tra testo e foto */
+  .home header .row{ --bs-gutter-x: 4.5rem; }
+}
+
+.social-links{ font-size: 1.05rem; }
+
+@media (max-width: 991.98px){
+  .headshot{ max-width: 240px; }
+  .home header.container{ padding-top: 1rem; }
+}
+
+/* ---------------------------------------
+   TEACHING
+--------------------------------------- */
 /* badge → nuova riga, ma solo largo quanto serve */
 .teach-item .badge-te{
   flex: 0 0 auto;      /* grow:0  shrink:0  basis:auto   */
   margin-top: .25rem;  /* respiro sotto la descrizione   */
-  /* opzionale per indentarli sotto il testo:  */
   padding-left: 1.5rem;
-  /* o, se preferisci, usa direttamente margin-left */
 }
-/* dimensioni personalizzate per i display (titoli grandi) */
-@media (min-width: 992px){        /* desktop */
-  .display-4 { font-size: 2.25rem; }   /* default 2.5rem */
-  .display-3 { font-size: 2.75rem; }   /* default 3.5rem */
-}
-@media (max-width: 991.98px){     /* tablet + mobile */
-  .display-4 { font-size: 1.9rem; }    /* default 2rem */
-  .display-3 { font-size: 2.3rem; }    /* default 2.5rem */
-}
- questo è tutto lo style
